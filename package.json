@@ -1,0 +1,19 @@
+{
+  "name": "my-progress",
+  "version": "1.0.0",
+  "description": "Web app to add daily progress entries",
+  "main": "index.js",
+  "author": "Simone Ferrero",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "migrate:create": "yarn workspace @my-progress/database migrate:create",
+    "migrate:db": "yarn workspace @my-progress/database migrate:db",
+    "run:migration": "docker-compose build migration && docker-compose up migration",
+    "start": "docker-compose up --build",
+    "start:server": "yarn workspace @my-progress/server watch"
+  }
+}

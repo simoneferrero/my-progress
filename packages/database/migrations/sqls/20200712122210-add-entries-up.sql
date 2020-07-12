@@ -1,0 +1,9 @@
+CREATE TABLE `entries` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE NOT NULL,
+  `title` VARCHAR(1000) NOT NULL,
+  `summary` VARCHAR(10000) NOT NULL,
+  `tags` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+);
