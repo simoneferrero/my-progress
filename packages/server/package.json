@@ -2,14 +2,32 @@
   "name": "@my-progress/server",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "start": "node ./bin/www"
+    "format": "yarn prettify --write",
+    "lint": "eslint ./src --ignore-path ../../.gitignore",
+    "prettify": "prettier \"src/**/*.js\"",
+    "start": "node ./index",
+    "validate": "yarn lint && yarn prettify --list-different",
+    "watch": "nodemon --signal SIGINT"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "sql-bricks": "^2.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
   }
 }
