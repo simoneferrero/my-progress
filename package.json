@@ -14,6 +14,7 @@
     "migrate:db": "yarn workspace @my-progress/database migrate:db",
     "run:migration": "docker-compose build migration && docker-compose up migration",
     "start:db": "docker-compose up --build",
-    "start:server": "yarn workspace @my-progress/server watch"
+    "start:server": "yarn workspace @my-progress/server watch",
+    "test:server:watch": "yarn workspace @my-progress/server test:watch"
   }
 }

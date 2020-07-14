@@ -7,6 +7,7 @@
     "lint": "eslint ./src --ignore-path ../../.gitignore",
     "prettify": "prettier \"src/**/*.js\"",
     "start": "node ./index",
+    "test:watch": "jest --watch --runInBand",
     "validate": "yarn lint && yarn prettify --list-different",
     "watch": "nodemon --signal SIGINT"
   },
@@ -22,12 +23,18 @@
     "sql-bricks": "^2.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
+    "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
   }
 }

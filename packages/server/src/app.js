@@ -2,11 +2,12 @@ import cookieParser from 'cookie-parser'
 import createError from 'http-errors'
 import express from 'express'
 import logger from 'morgan'
-import mysql from 'mysql2'
+import mysql from 'mysql2/promise'
 
 import definitions from './utils/definitions'
 
 import indexRouter from './routes/index'
+import entriesRouter from './routes/entries'
 
 const app = express()
 
@@ -52,6 +53,7 @@ try {
   })
 
   app.use('/', indexRouter)
+  app.use('/entries', entriesRouter)
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
