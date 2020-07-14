@@ -11,9 +11,7 @@ import entriesRouter from './routes/entries'
 
 const app = express()
 
-const { DB, NODE_ENV } = definitions
-
-export const PORT = process.env.PORT || '7000'
+const { DB, NODE_ENV, PORT } = definitions
 
 let pool
 

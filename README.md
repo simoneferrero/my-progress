@@ -7,7 +7,7 @@ It consists of a React client, NodeJS server and MySQL database.
 At this time (it may be changed in the future), you need to create a `.env` file at the root of the project, as well as each package, with the following contents:
 
 ```
-PORT=7000 # your server's port
+SERVER_PORT=7000 # your server's port
 
 DB_HOST=localhost # the host of your database
 DB_CONNECTION_LIMIT=10 # how many concurrent connections the server will accept

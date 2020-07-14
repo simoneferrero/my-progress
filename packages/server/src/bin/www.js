@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 
-import app, { PORT } from '../app'
 import debug from 'debug'
 import http from 'http'
+
+import app from '../app'
+import definitions from '../utils/definitions'
 
 debug('server:server')
 
 const server = http.createServer(app)
+const { PORT } = definitions
 
 function onListening() {
   var addr = server.address()
