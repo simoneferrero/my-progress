@@ -1,15 +1,15 @@
-import React from 'react';
-import { Entries } from './features/entries/Entries';
-import './App.css';
+import React from 'react'
+import { Entries } from './features/entries/Entries'
+import './App.css'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
         <Entries />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
