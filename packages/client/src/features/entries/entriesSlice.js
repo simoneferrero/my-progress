@@ -1,14 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
 
 export const counterSlice = createSlice({
   name: 'entries',
   initialState: {
-    loading: false,
-    entriesById: {},
+    error: null,
     entriesAllIds: [],
+    entriesById: {},
+    loading: false,
   },
   reducers: {
+    addEntry: (state) => {
+      state.loading = true
+      state.error = null
+    },
+    addEntryError: (state) => {
+      state.loading = false
+      state.error = 'There was an error adding this entry'
+    },
+    addEntrySuccess: (state, { payload }) => {
+      state.entriesById[payload.entry.id] = payload.entry
+      state.entriesAllIds.push(payload.entry.id)
+      state.loading = false
+    },
+    getEntries: (state) => {
+      state.loading = true
+      state.error = null
+    },
+    getEntriesError: (state) => {
+      state.loading = false
+      state.error = 'There was an error loading your entries'
+    },
     getEntriesSuccess: (state, { payload }) => {
       state.entriesById = payload.entries.reduce(
         (allEntries, currentEntry) => ({
@@ -18,22 +39,19 @@ export const counterSlice = createSlice({
         {},
       )
       state.entriesAllIds = payload.entries.map(({ id }) => id)
-    },
-    // TODO: create getEntriesError
-    setLoading: (state, { payload }) => {
-      state.loading = payload.loading
+      state.loading = false
     },
   },
 })
 
-export const { getEntriesSuccess, setLoading } = counterSlice.actions
-
-export const getEntries = () => async (dispatch) => {
-  const { data } = await axios.get('http://localhost:7000/entries')
-
-  dispatch(getEntriesSuccess({ entries: data }))
-  // TODO: handle error
-}
+export const {
+  addEntry,
+  addEntryError,
+  addEntrySuccess,
+  getEntries,
+  getEntriesError,
+  getEntriesSuccess,
+} = counterSlice.actions
 
 export const selectEntries = (state) =>
   state.entries.entriesAllIds.map((id) => state.entries.entriesById[id])

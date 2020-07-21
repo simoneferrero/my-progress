@@ -4,7 +4,7 @@ import EntriesModel from '../../models/entries'
 describe('Given the `entries` controller', () => {
   const id = '1'
   const values = {
-    date: '14-01-1989',
+    date: '1989-01-14',
     title: 'Test Title',
     summary: 'Test Summary',
     tags: 'tag1, tag2',
@@ -30,8 +30,8 @@ describe('Given the `entries` controller', () => {
     it('should work correctly', async () => {
       const entries = [
         {
-          id,
           ...values,
+          id,
         },
       ]
       execute.mockResolvedValueOnce([entries])
@@ -67,8 +67,8 @@ describe('Given the `entries` controller', () => {
 
     it('should work correctly', async () => {
       const entry = {
-        id,
         ...values,
+        id,
       }
       execute.mockResolvedValueOnce([{ insertId: id }])
       execute.mockResolvedValueOnce([[entry]])
